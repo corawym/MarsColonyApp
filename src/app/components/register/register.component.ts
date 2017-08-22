@@ -5,14 +5,22 @@ import { ColonistService} from '../../services/colonist';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styles: []
+  styles: [],
+  providers: [
+    JobService
+  ]
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(jobService: JobService, colonistService: ColonistService) { }
+  constructor(private jobService: JobService) { }
 
+// , colonistService: ColonistService
 
-  ngOnInit() {
+  async ngOnInit() {
+
+    const jobs = await this.jobService.getJobs();
+    console.log(jobs);
+    
   }
 
 }

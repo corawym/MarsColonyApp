@@ -8,7 +8,7 @@ export class JobService {
   jobsUrl = 'https://red-wdp-api.herokuapp.com/api/mars/jobs';
   constructor(private http: Http){}
 
-  getJob(): Promise<Job[]> {
+  getJobs(): Promise<Job[]> {
     return this.http.get(this.jobsUrl)
                     .toPromise()
                     .then(response => response.json().job)
