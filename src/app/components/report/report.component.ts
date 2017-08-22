@@ -6,7 +6,7 @@ import { EncounterService } from '../../services/encounters';
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
-  styleUrls: [],
+  styleUrls: ['./report.component.css'],
   providers: [
     AlienService,
     EncounterService
@@ -25,7 +25,6 @@ export class ReportComponent implements OnInit {
     const aliens = await this.alienService.getAliens();
     console.log(aliens);
 
-  
     const data = {
       atype: "Octospider",
       date: "2017-10-01",
