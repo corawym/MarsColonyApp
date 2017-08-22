@@ -33,7 +33,6 @@ export class RegisterComponent implements OnInit {
     const newColonist = await this.colonistService.registerColonist(data);
     console.log(newColonist);
 
-    
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlienService } from '../../services/alien';
+import { EncounterService } from '../../services/encounters';
 
 
 @Component({
@@ -7,19 +8,34 @@ import { AlienService } from '../../services/alien';
   templateUrl: './report.component.html',
   styleUrls: [],
   providers: [
-    AlienService
+    AlienService,
+    EncounterService
   ]
 })
 
 export class ReportComponent implements OnInit {
 
-  constructor(private alienService: AlienService) { }
+  constructor(
+    private alienService: AlienService,
+    private encounterService: EncounterService
+    ) { }
 
   async ngOnInit() {
 
     const aliens = await this.alienService.getAliens();
     console.log(aliens);
-    
+
+  
+    const data = {
+      atype: "Octospider",
+      date: "2017-10-01",
+      action: "Web developer.",
+      colonist_id: "4"
+    };
+
+    const newReport = await this.encounterService.reportEncounter(data);
+    console.log(newReport);
+
   }
 
 
