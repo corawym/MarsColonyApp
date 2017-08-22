@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { AlienService } from '../../services/alien';
+
 
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
-  styleUrls: []
+  styleUrls: [],
+  providers: [
+    AlienService
+  ]
 })
+
 export class ReportComponent implements OnInit {
 
-  constructor() { }
+  constructor(private alienService: AlienService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+
+    const aliens = await this.alienService.getAliens();
+    console.log(aliens);
+    
   }
+
 
 }

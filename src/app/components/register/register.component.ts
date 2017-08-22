@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { JobService } from '../../services/job';
+import { ColonistService} from '../../services/colonist';
 
 @Component({
   selector: 'app-register',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(jobService: JobService, colonistService: ColonistService) { }
+
 
   ngOnInit() {
   }
