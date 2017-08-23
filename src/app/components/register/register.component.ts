@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Job } from '../../models/job';
+import { NewColonist } from '../../models/colonist';
 import { JobService } from '../../services/job';
 import { ColonistService } from '../../services/colonist';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -18,9 +19,18 @@ export class RegisterComponent implements OnInit {
   jobs: Job[];
 
   registerForm = new FormGroup({
-    name: new FormControl(''),
-    age: new FormControl(''),
-    job_id: new FormControl('')
+    name: new FormControl('', [
+      Validators.required, 
+      Validators.maxLength(100), 
+      Validators.minLength(2),
+      this.noNumbers(/[0-9]/)
+      ]),
+    age: new FormControl('', [
+      Validators.required,
+      Validators.max(150000),
+      Validators.min(0)
+      ]),
+    job_id: new FormControl('', [Validators.required])
   });
 
 
@@ -31,32 +41,25 @@ export class RegisterComponent implements OnInit {
 
 
   async ngOnInit() {
-
     this.jobs = await this.jobService.getJobs();
+  }
 
-    // const jobs = await this.jobService.getJobs();
-    // console.log(jobs);
+  async registerColonist(){
+    const newColonist: NewColonist = {
+      name: this.registerForm.get( 'name' ).value,
+      age: this.registerForm.get( 'age' ).value,
+      job_id: this.registerForm.get( 'job_id' ).value
+    };
 
-    // const data = {
-    //   name: 'hello',
-    //   age: '2',
-    //   job_id: '1'
-    // };
+    const colonist = await this.colonistService.registerColonist(newColonist);
+    console.log( 'colonist was saved', colonist );
+  }
 
-    // const newColonist = await this.colonistService.registerColonist(data);
-    // console.log(newColonist);
 
-    // setInterval(() => {
-    //   this.data.push({ text: `Encounter ${Math.random()}` });
-    // }, 1000);
-
-    // removeListItem(item) {
-    // this.data = this.data.filter(li => li !== item);
-    // }
-
-    // addListItem(item) {
-    //   this.data.push({ text: item });
-    // }
-
+  private noNumbers(validNameRegex): ValidatorFn{
+    return (control): { [key: string] : any }   => {
+      const forbiddenName = validNameRegex.test(control.value);
+      return forbiddenName ? { 'forbiddenName' : { value: control.value } } : null;
+    };
   }
 }

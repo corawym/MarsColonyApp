@@ -511,8 +511,29 @@ h1{
 }
 
 /*elements style*/
-label{
+form{
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+  align-items: center;
+}
+input, select
+{
   display: block;
   color: white;
   margin-bottom: 30px;
+  width: 80%;
+  height: 60px;
+  border: none;
+  border-bottom: 1px solid white;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0);
 }
+
+/*.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; 
+}*/
