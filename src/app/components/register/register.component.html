@@ -3,17 +3,21 @@
     <h1>register</h1>
   </section>
   <section class='page-content'>
+    <input type='text' #item value='default item'/> <button type='button' (click)='addListItem(item.value)'>Add item</button>
+    <p *ngIf='data.length >= 10'>Your List is TOO LONG!</p>
+    <ul [ngClass]='{ 
+      warning: data.length >= 10,
+      ok: data.length < 10
+    }'>
     
-    <label for='name'>
-      <input type='text' name='name' placeholder='Enter your name' autofocus>
-    </label>
-
-    <label for='age'>
-      <input type='text' name='age' placeholder='Enter your age'>
-    </label>
-
-    <label for='occupation'>select occupation</label>
-  
+      <li 
+        [style.backgroundColor]="data.length >= 4 ? 'white' : 'lightpink'"
+        *ngFor='let encounter of data'>
+        {{ encounter.text }}
+        <button type='button' (click)='removeListItem(encounter)'>x</button>
+      </li>
+    </ul>
+   
   </section>
   <section class='page-bottom'>
     <h2>check in</h2>
