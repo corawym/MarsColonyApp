@@ -468,14 +468,21 @@ body{
 
 .page-header{
   margin-top: 40px;
+  height: 20vh;
 }
 
 .page-content{
-
+  height: 65vh;
 }
 
 .page-bottom{
   margin-bottom: 40px;
+
+}
+
+.register .page-content, .report .page-content{
+  padding-top: 40px;
+  text-align: center;
 }
 
 /*font styl*/
@@ -495,6 +502,17 @@ h1{
   letter-spacing: 0.9rem;
 }
 
-.text-center{
+.sub-header{
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.3rem;
   text-align: center;
+}
+
+/*elements style*/
+label{
+  display: block;
+  color: white;
+  margin-bottom: 30px;
 }
