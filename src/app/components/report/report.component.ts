@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Alien } from '../../models/alien';
+import { NewReport } from '../../models/report';
 import { AlienService } from '../../services/alien';
 import { EncounterService } from '../../services/encounters';
-
+import { FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms';
 
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
-  styleUrls: ['./report.component.css'],
+  styleUrls: ['./report.component.scss'],
   providers: [
     AlienService,
     EncounterService
@@ -14,6 +16,8 @@ import { EncounterService } from '../../services/encounters';
 })
 
 export class ReportComponent implements OnInit {
+
+
 
   constructor(
     private alienService: AlienService,
