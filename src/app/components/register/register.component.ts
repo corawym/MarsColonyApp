@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Job } from '../../models/job';
 import { JobService } from '../../services/job';
 import { ColonistService } from '../../services/colonist';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -12,12 +14,14 @@ import { ColonistService } from '../../services/colonist';
   ]
 })
 export class RegisterComponent implements OnInit {
-  // public newItem = 'Default Item';
-  public data = [
-    { text: 'Alien encounter1' },
-    { text: 'Alien encounter2' },
-    { text: 'Alien encounter3' },
-  ];
+
+  jobs: Job[];
+
+  registerForm = new FormGroup({
+    name: new FormControl(''),
+    age: new FormControl(''),
+    job_id: new FormControl('')
+  });
 
 
   constructor(
@@ -27,6 +31,8 @@ export class RegisterComponent implements OnInit {
 
 
   async ngOnInit() {
+
+    this.jobs = await this.jobService.getJobs();
 
     // const jobs = await this.jobService.getJobs();
     // console.log(jobs);
@@ -44,13 +50,13 @@ export class RegisterComponent implements OnInit {
     //   this.data.push({ text: `Encounter ${Math.random()}` });
     // }, 1000);
 
-    removeListItem(item) {
-    this.data = this.data.filter(li => li !== item);
-    }
+    // removeListItem(item) {
+    // this.data = this.data.filter(li => li !== item);
+    // }
 
-    addListItem(item) {
-      this.data.push({ text: item });
-    }
-    
+    // addListItem(item) {
+    //   this.data.push({ text: item });
+    // }
+
   }
 }
