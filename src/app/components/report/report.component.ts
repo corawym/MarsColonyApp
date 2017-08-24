@@ -3,7 +3,10 @@ import { Alien } from '../../models/alien';
 import { NewReport } from '../../models/report';
 import { AlienService } from '../../services/alien';
 import { EncounterService } from '../../services/encounters';
+import { ColonistService } from '../../services/colonist';
 import { FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-report',
@@ -20,30 +23,32 @@ export class ReportComponent implements OnInit {
   aliens: Alien[];
 
   reportForm = new FormGroup({
-    alien_atype: new FormControl('', [Validators.required])
+    atype: new FormControl('', [Validators.required]),
+    action: new FormControl('', [Validators.required])
   });
 
   constructor(
     private alienService: AlienService,
-    private encounterService: EncounterService
+    private encounterService: EncounterService,
+    private colonistService: ColonistService,
+    private router: Router
     ) { }
 
   async ngOnInit() {
-
-    const aliens = await this.alienService.getAliens();
-    console.log(aliens);
-
-    const data = {
-      atype: "Octospider",
-      date: "2017-10-01",
-      action: "Web developer.",
-      colonist_id: "4"
-    };
-
-    const newReport = await this.encounterService.reportEncounter(data);
-    console.log(newReport);
-
+    this.aliens = await this.alienService.getAliens();
   }
 
+  async reportEncounter(){
+
+    const newReport: NewReport = {
+      atype: this.reportForm.get( 'atype' ).value,
+      date: '2017-08-24',
+      action: this.reportForm.get( 'action' ).value,
+      colonist_id: this.colonistService.getColonist().id.toString()
+    };
+
+    const report = await this.encounterService.reportEncounter(newReport);
+    this.router.navigate(['encounters']);
+  }
 
 }

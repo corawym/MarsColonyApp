@@ -12,7 +12,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 
-import { appRoutes} from './app.routes';
+import { ColonistService } from './services/colonist';
+
+import { appRoutes } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { appRoutes} from './app.routes';
     HttpModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    ColonistService
+  ],
   bootstrap: [
     AppComponent
   ]

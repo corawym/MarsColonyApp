@@ -5,7 +5,10 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ColonistService {
+
   colonistsUrl = 'https://red-wdp-api.herokuapp.com/api/mars/colonists';
+
+  colonistStored: Colonist;
 
   constructor(private http: Http){}
 
@@ -15,8 +18,14 @@ export class ColonistService {
     return this.http
                .post(this.colonistsUrl, body, { headers: headers })
                .toPromise()
-               .then(response => response.json().colonist)
+               .then(response => {
+                 this.colonistStored = response.json().colonist;
+                 return response.json().colonist;
+                })
                .catch(this.handleError);
+  }
+  getColonist(){
+    return this.colonistStored;
   }
 
   private handleError(error: any): Promise<any> {

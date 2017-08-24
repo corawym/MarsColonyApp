@@ -5,15 +5,17 @@ import { JobService } from '../../services/job';
 import { ColonistService } from '../../services/colonist';
 import { FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
   providers: [
     JobService,
-    ColonistService
   ]
 })
+
 export class RegisterComponent implements OnInit {
 
   jobs: Job[];
@@ -36,7 +38,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private jobService: JobService, 
-    private colonistService: ColonistService
+    private colonistService: ColonistService,
+    private router: Router
   ) { }
 
 
@@ -52,7 +55,7 @@ export class RegisterComponent implements OnInit {
     };
 
     const colonist = await this.colonistService.registerColonist(newColonist);
-    console.log( 'colonist was saved', colonist );
+    this.router.navigate(['encounters']);
   }
 
 
