@@ -10,8 +10,8 @@
         <option value=''>select a alien type</option>
         <option *ngFor='let alien of aliens' [value]='alien.type'>{{alien.type}}</option>
       </select>
-      <textarea name='textarea' rows='10' cols='50'>Action taken</textarea>
-      <button [disabled]="registerForm.status === 'INVALID'" type='submit'>submit</button>
+      <textarea name='textarea' rows='10' cols='50' placeholder='Action taken?'></textarea>
+      <button [disabled]="registerForm.status === 'INVALID'" type='submit' class='button'>submit</button>
     </form>
     {{ registerForm.value | json }}
     {{ registerForm.status | json }}

@@ -17,6 +17,12 @@ import { FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms'
 
 export class ReportComponent implements OnInit {
 
+  aliens: Alien[];
+
+  reportForm = new FormGroup({
+    alien_atype: new FormControl('', [Validators.required])
+  });
+
   constructor(
     private alienService: AlienService,
     private encounterService: EncounterService
