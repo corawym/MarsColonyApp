@@ -17,8 +17,6 @@ import { FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms'
 
 export class ReportComponent implements OnInit {
 
-
-
   constructor(
     private alienService: AlienService,
     private encounterService: EncounterService

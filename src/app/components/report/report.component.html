@@ -4,26 +4,17 @@
     <p class='sub-header'>Safety on Mars is your responsibility</p>
   </section>
   <section class='page-content'>
-<!--
-    <label for='alien-type'>select alien type</label>
 
-    <textarea name='textarea' rows='10' cols='50'>Action taken</textarea>-->
-
-    <form [formGroup]='reportForm' novalidate (submit)='registerColonist()'>
-      <input type='text' placeholder='Enter your name' formControlName='name' />
-      <input type='number' placeholder='Enter you age' formControlName='age' />
-      <select formControlName='job_id'>
-        <option value=''>Select a job</option>
-        <option *ngFor='let job of jobs' [value]='job.id'>{{job.name}}</option>
+    <form [formGroup]='reportForm' novalidate (submit)='reportEncounter()'>
+      <select formControlName='alien_atype'>
+        <option value=''>select a alien type</option>
+        <option *ngFor='let alien of aliens' [value]='alien.type'>{{alien.type}}</option>
       </select>
-      <button [disabled]="registerForm.status === 'INVALID'" type='submit'>Register</button>
+      <textarea name='textarea' rows='10' cols='50'>Action taken</textarea>
+      <button [disabled]="registerForm.status === 'INVALID'" type='submit'>submit</button>
     </form>
     {{ registerForm.value | json }}
     {{ registerForm.status | json }}
   
-
-  </section>
-  <section class='page-bottom'>
-    <h2>Sumbit Report</h2>
   </section>
 </div>
