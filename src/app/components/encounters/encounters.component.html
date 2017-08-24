@@ -4,10 +4,15 @@
     <p class='sub-header'>See an Alien? Report it!</p>
   </section>
   <section class='page-content'>
-    
+    <ul>
+      <li *ngFor='let encounter of encounters'>
+        <p class='encounters-list-topic'>{{ encounter.date }} - {{ encounter.atype }}</p>
+        <p class='encounters-list-action'>{{ encounter.action }}</p>
+      </li>
+    </ul>
     <!--{this.data.encounters}-->
   </section>
   <section class='page-bottom'>
-     <a class='button'>Report Encounter</a>
+     <a class='button-on'>Report Encounter</a>
   </section>
 </div>
