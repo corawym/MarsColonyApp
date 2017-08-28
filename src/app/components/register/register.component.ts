@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
       ]),
     age: new FormControl('', [
       Validators.required,
-      Validators.max(150000),
+      Validators.max(120),
       Validators.min(0)
       ]),
     job_id: new FormControl('', [Validators.required])

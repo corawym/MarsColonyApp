@@ -69,18 +69,18 @@ input, select{
 }
 
 
-.button, .button-on{
+.button{
   text-transform: uppercase;
-  font-family: 'Orbitron', sans-serif;
+  font-family: $main_font_family;
   font-weight: 900;
   padding-top: 30px;
   padding-bottom: 30px;
   display: block;
   width: 100%;
   border: none;
-}
-
-.button-on{
   color: rgb(29, 45, 87);
   background-color: $primary-color-white;
+  font-size: 1.4rem;
+  letter-spacing: 0.2rem;
 }
+
