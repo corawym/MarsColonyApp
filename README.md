@@ -36,5 +36,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ### CSS
 - Implement a mobile-first responsive layout using Flexbox
-- Incorporate styles elements (including SCSS variables and mixins) into a _theme.scss file
+- Incorporate styles elements into a _theme.scss file
 - Use Angular Component scope styling and the @import directive
+
+## Screenshot
+![Mars Colony App's welcome page](screenshots/MarsColony-screenshot.png "Mars Colony App's welcome page")

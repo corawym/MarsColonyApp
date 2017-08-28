@@ -52,7 +52,7 @@ export class ReportComponent implements OnInit {
     const todayDate = `${yyyy}-${mm}-${dd}`;
 
     const newReport: NewReport = {
-      atype: this.reportForm.get( 'atype' ).value.toString(),
+      atype: this.reportForm.get( 'atype' ).value(),
       date: todayDate,
       action: this.reportForm.get( 'action' ).value.toString(),
       colonist_id: this.colonistService.getColonist().id.toString()
