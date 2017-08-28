@@ -39,10 +39,20 @@ export class ReportComponent implements OnInit {
   }
 
   async reportEncounter(){
-
+    const today = new Date();
+    var dd = today.getDate().toString();
+    var mm = (today.getMonth()+1).toString(); //January is 0!
+    var yyyy = today.getFullYear();
+    if( parseInt(dd) < 10 ){
+        dd = '0' + dd;
+    } 
+    if( parseInt(mm) < 10 ){
+        mm = '0' + mm;
+    } 
+    
     const newReport: NewReport = {
       atype: this.reportForm.get( 'atype' ).value,
-      date: '2017-08-24',
+      date : `${yyyy}-${mm}-${dd}`,
       action: this.reportForm.get( 'action' ).value,
       colonist_id: this.colonistService.getColonist().id.toString()
     };
