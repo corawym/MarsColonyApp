@@ -1,13 +1,16 @@
+@import '../../../theme';
+
 h1{
   font-size: 3rem;
 }
 
-h2{
+.page-bottom{
+  margin-bottom: 50px;
+}
+
+.page-link{
   font-size: 1.8rem;
   font-weight: 400;
   letter-spacing: 0.2rem;
-}
-
-.page-bottom{
-  margin-bottom: 50px;
+  color: white;
 }
