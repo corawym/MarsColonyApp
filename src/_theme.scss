@@ -3,97 +3,15 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
 
 /*page layout style*/
-body{
-  margin: 0;
-}
-
-.page-container{
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient( rgba(29, 45, 87, 1),rgba(21, 56, 72, 1));
-}
-
-.page-header{
-  margin-top: 40px;
-  height: 20vh;
-}
-
-.register .page-content, .report .page-content{
-  padding: 40px;
-  text-align: center;
-  height: 80vh;
-}
-
-
+$background-color: linear-gradient( rgba(29, 45, 87, 1),rgba(21, 56, 72, 1));
+$primary-color-white: white;
 
 
 /*font styl*/
-*{
-  font-size: 16px;
-}
-
-h1, h2{
-  text-align: center;
-  text-transform: uppercase;
-  color: white;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
-}
-
-h1{
-  letter-spacing: 0.8rem;
-}
-
-.sub-header{
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 700;
-  color: white;
-  letter-spacing: 0.3rem;
-  text-align: center;
-}
-
-/*elements style*/
-form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-input, select{
-  display: block;
-  color: white;
-  margin-bottom: 30px;
-  width: 100%;
-  height: 60px;
-  border: none;
-  border-bottom: 1px solid white;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0);
-}
+$base_font_size: 16px;
+$main_font_family: 'Orbitron', sans-serif;
 
 
-.button, .button-on{
-  text-transform: uppercase;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  display: block;
-  width: 100%;
-  border: none;
-}
-
-.button-on{
-  color: rgb(29, 45, 87);
-  background-color: white;
-}
-
-a{
-  text-decoration: none;
-}
 
 
 
