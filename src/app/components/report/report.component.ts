@@ -42,18 +42,19 @@ export class ReportComponent implements OnInit {
     const today = new Date();
     var dd = today.getDate().toString();
     var mm = (today.getMonth()+1).toString(); //January is 0!
-    var yyyy = today.getFullYear();
+    var yyyy = today.getFullYear().toString();
     if( parseInt(dd) < 10 ){
         dd = '0' + dd;
     } 
     if( parseInt(mm) < 10 ){
         mm = '0' + mm;
     } 
-    
+    const todayDate = `${yyyy}-${mm}-${dd}`;
+
     const newReport: NewReport = {
-      atype: this.reportForm.get( 'atype' ).value,
-      date : `${yyyy}-${mm}-${dd}`,
-      action: this.reportForm.get( 'action' ).value,
+      atype: this.reportForm.get( 'atype' ).value.toString(),
+      date: todayDate,
+      action: this.reportForm.get( 'action' ).value.toString(),
       colonist_id: this.colonistService.getColonist().id.toString()
     };
 
