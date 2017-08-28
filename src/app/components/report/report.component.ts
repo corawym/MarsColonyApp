@@ -47,7 +47,7 @@ export class ReportComponent implements OnInit {
       colonist_id: this.colonistService.getColonist().id.toString()
     };
 
-    const report = await this.encounterService.reportEncounter(newReport);
+    await this.encounterService.reportEncounter(newReport);
     this.router.navigate(['encounters']);
   }
 

@@ -10,7 +10,7 @@
         <option value=''>select a alien type</option>
         <option *ngFor='let alien of aliens' [value]='alien.type'>{{alien.type}}</option>
       </select>
-      <textarea name='textarea' rows='10' cols='50' placeholder='Action taken?' formControlName='action'></textarea>
+      <textarea name='textarea' placeholder='Action taken?' formControlName='action'></textarea>
       <button [disabled]="reportForm.status === 'INVALID'" type='submit' class='button'>submit</button>
     </form>
     <!--{{ registerForm.value | json }}
