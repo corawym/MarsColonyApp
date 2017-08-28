@@ -72,11 +72,12 @@ input, select{
   text-transform: uppercase;
   font-family: $main_font_family;
   font-weight: 900;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: block;
   width: 100%;
   border: none;
+  border-radius: 50px;
   color: rgb(29, 45, 87);
   background-color: $primary-color-white;
   font-size: 1.4rem;
