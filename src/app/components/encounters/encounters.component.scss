@@ -1,3 +1,5 @@
+@import '../../../theme';
+
 .encounters{
   .page-content{
     height: 65vh;
@@ -25,11 +27,14 @@ ul{
       letter-spacing: 0.1rem;
     }
     .encounters-list-topic{
-      font-family: 'Orbitron', sans-serif;
-      // color: rgb(236,85,40);
+      font-family: $main_font_family;
     }
     .encounters-list-action{
       margin-left: 15px;
     }
   }
+}
+
+a{
+  text-decoration: none;
 }
