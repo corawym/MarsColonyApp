@@ -10,7 +10,7 @@ body{
   justify-content: space-between;
   width: 100vw;
   height: 100vh;
-  background: $background-color
+  background: $background-color;
 }
 
 .page-header{
@@ -83,8 +83,4 @@ input, select{
 .button-on{
   color: rgb(29, 45, 87);
   background-color: $primary-color-white;
-}
-
-a{
-  text-decoration: none;
 }

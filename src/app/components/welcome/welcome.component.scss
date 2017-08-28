@@ -4,13 +4,77 @@ h1{
   font-size: 3rem;
 }
 
+.page-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a{
+  height: 350px;
+  width: 350px;
+}
+
 .page-bottom{
   margin-bottom: 50px;
 }
 
-.page-link{
+h2{
   font-size: 1.8rem;
   font-weight: 400;
   letter-spacing: 0.2rem;
-  color: white;
+  color: $primary-color-white;
+}
+
+
+// pulsating circle style
+.pulse {
+  border: 2px solid $primary-color-white;
+  box-shadow: 0 0 50px $primary-color-white;
+  background: rgba(255,255,255,0.05);
+  border-radius: 100%;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  animation: pulse 2.5s ease-out;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;  
+}
+
+.pulse-big {
+  height: 350px;
+  width: 350px;  
+}
+
+.mid { 
+  animation-delay: 1.25s;
+  animation-duration: 2.5s;
+}
+
+.outer { 
+  animation-delay: 1.75s;
+  animation-duration: 2.5s;
+}
+
+@-webkit-keyframes "pulse" {
+ 0% {
+    -webkit-transform: scale(0);
+    opacity: 0.0;
+ }
+ 25% {
+    -webkit-transform: scale(0.25);
+    opacity: 0.25;
+ }
+ 50% {
+    -webkit-transform: scale(0.5);
+    opacity: 0.5;
+ }
+ 75% {
+    -webkit-transform: scale(0.75);
+    opacity: 0.75;
+ }
+ 100% {
+    -webkit-transform: scale(1);
+    opacity: 0.0;
+ }
 }
