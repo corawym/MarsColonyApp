@@ -4,6 +4,19 @@
     <p class='sub-header'>See an Alien? Report it!</p>
   </section>
   <section class='page-content'>
+    <div *ngIf='loading'>
+      <div class='overlay-loader'>
+        <div class='loader'>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div> 
     <ul>
       <li *ngFor='let encounter of encounters'>
         <p class='encounters-list-topic'>{{ encounter.date }} - {{ encounter.atype }}</p>
