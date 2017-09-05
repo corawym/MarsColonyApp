@@ -6,10 +6,10 @@
   <section class='page-content'>
     
     <form [formGroup]='registerForm' novalidate (submit)='registerColonist()'>
-      <input type='text' placeholder='Enter your name' formControlName='name' />
-      <input type='number' placeholder='Enter you age ( 0 - 120 )' formControlName='age' />
+      <input type='text' placeholder='Enter Your Name' formControlName='name' />
+      <input type='number' placeholder='Enter You Age ( 0 - 120 )' formControlName='age' />
       <select formControlName='job_id'>
-        <option value=''>Select a job</option>
+        <option value=''>Select a Job</option>
         <option *ngFor='let job of jobs' [value]='job.id'>{{job.name}}</option>
       </select>
       <button [disabled]="registerForm.status === 'INVALID'" type='submit' class='button'>Register</button>
